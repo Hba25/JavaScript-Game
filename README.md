@@ -3,7 +3,7 @@
 Portfolio JavaScript Game
 
 /\*
----Basic---
+---Basic---  
 Game starts with an empty board of 7 columns and 6 rows  
 Players take turns placing pieces that fall vertically. Players will not be able to interact with the board  
 once they have concluded their turn until the next player has moved  

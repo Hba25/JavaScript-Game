@@ -1,0 +1,18 @@
+h1 {
+  justify-self: center;
+}
+
+.gameBoard {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  width: 120vh;
+  height: 85vh;
+  justify-self: center;
+}
+
+.slot {
+  /* display: flex; */
+
+  border: 2px solid rgba(18, 29, 126, 0.308);
+}

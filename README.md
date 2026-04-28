@@ -1,64 +1,96 @@
-# JavaScript-Game
+## Connect Four Game
 
-Portfolio JavaScript Game
+## Objective
 
-/\*
----Basic---
-Game starts with an empty board of 7 columns and 6 rows
-Players take turns placing pieces that fall vertically. Players will not be able to interact with the board
-once they have concluded their turn until the next player has moved
-50/50 who starts by having the pieces large, and next to each other. The player will choose
-their colour, and the pieces will flicker until one is chosen. That player will start
-After each piece is placed, check if there is a connection of four in a row
-(horizontally, vertically and diagonally)
-If a player has won, show win screen for that player
-If the board has filled without a winner, show draw screen
+Two players take turns placing pieces in a 6-row, 7-column grid. Pieces fall to the lowest available slot in its column. The first player to connect four (horizontally, vertically or diagonally) wins. If the board fills without a winner, declare a draw. A scoreboard should carry the wins and losses throughout the session and include a new game button.
 
-Include a button for new game and a scoreboard
-\*/
+## HTML
 
-/\*
+- [ ] Board container (basic grid 6x7)
+- [ ] Each cell is represented (<div> with column/row)
+- [ ] New game button
+- [ ] Scoreboard that shows wins/losses for the players
+- [ ] Win/draw overlay
+- [ ] Piece selection screen shows flickering pieces to choose starting player
+- [ ] (Furthest) Buttons to activate powers for each player (flip, freeze)
 
----Further---
-Introduce powers that let the player alter the game state
-Each player will start with the flip power-
-Rotate the board in a 90 degree angle either way
-The pieces will be affected by gravity and fall as such
-If players have an equal amount of four in a row, delete them
-Each player will have a freeze power
-Allows the player to freeze a row for one turn while having their move as well
-Only vertical freeze allowed- players cannot place a token in that column
-Players cannot rotate the board during freezing
+## SCSS
 
-\*/
+- [ ] Board layout using Grid with gaps
+- [ ] Circular piece styling using border-radius:50%
+- [ ] Two distinct colours for the pieces
+- [ ] Responsive design - the board should fill screen on mobile
+- [ ] Flicker animation for selection screen
+- [ ] Piece-drop animation for gravity effect
+- [ ] Win/Draw screen styled as a centered overlay
+- [ ] Hover effect on columns to indicate click target
 
-/\*
----Furthest---
-The freeze power can target horizontal rows
-A frozen row will hold the pieces in place even if there is nothing supporting them
+## JavaScript
 
-Allow for players to regain their powers through patterns such as
-Freeze- surrounding a opponent piece with 8 pieces in a square formation
-Rotation- 3 up, 3 left, one down (r shape)
+### Core mechanics
 
-Computer opponent implementation that prioritises blocking player 4th connection
-Otherwise, it will place a piece and build off of that to the clearest path of 4
-unless the path is blocked, in which case it will place another piece to build off of
+- [ ] Board represented as 2D array- 6 rows by 7 columns
+- [ ] Render the board from the array on every move
+- [ ] Column click listener to determine which column was clicked
+- [ ] Place piece in the lowest empty cell of that column
+- [ ] Update board array and re-render it
+- [ ] After each piece is placed:
+  - [ ] Check for win in every direction
+  - [ ] If a player has won, show win screen, update scoreboard and lock board til new game button is pressed
+  - [ ] If board is full and no player has won, show draw screen
+- [ ] Switch turns between players
+- [ ] New game button should:
+  - [ ] Reset board array
+  - [ ] Hide win/draw screens
+  - [ ] Re-trigger the start-selection screen
 
-\*/
+### Game-start piece selection
 
-/\*
-How to build
+- [ ] Both player pieces are displayed large
+- [ ] Players choose their colour, then pieces begin to flicker. The one
+      it randomly lands on is the player that starts
+- [ ] First turn begins
 
-HTML- for the website, new game button and score board
-CSS- Scale for mobile, so the board takes up majority of the screen
-Javascript - event listeners for clicks to place the pieces and logic
-Main functions will be checking for win, updating the scoreboard
-, new game wipe and logic
-\*/
+### Lower priority
 
-/\*
-Gravity implementation - The pieces will be drawn to the bottom of the board
-Align items- flex end but in JS
+### Flip power
 
-\*/
+- [ ] Each player gets one flip use at the start of the match
+- [ ] When activated, the board will rotate 90 degrees clockwise or anti-clockwise
+- [ ] Pieces fall vertically in the new orientation till they hit the new bottom or another piece
+- [ ] Any connected fours for both players are removed from the board
+
+### Freeze power (vertical)
+
+- [ ] Each player gets one column freeze per game
+- [ ] When player freezes a column, neither player can place a piece in that column. They still get their turn and it is frozen till their next turn starts
+  - [ ] Opponent cannot play a piece in that column until their next turn
+  - [ ] The player cannot play a piece first and then freeze
+- [ ] Board rotation is disabled while any column is frozen
+
+### Lowest priority
+
+### Freeze power (horizontal)
+
+- [ ] Rows can be frozen and will act as a solid base. Pieces will stack on top of this base, unable to fall to the bottom of the board
+- [ ] Flip power is available and will maintain their freeze of the row, and act as a vertical freeze
+- [ ] Lasts one turn
+
+### Power regain
+
+- [ ] **Freeze** can be regained if a player surrounds an opponents piece with 8 pieces in a square formation around it
+- [ ] **Flip** can be regained if a player creates an "r" shape: three up, three left, one down with their pieces in any orientation
+
+### Computer opponent
+
+- [ ] Computer will first check if it can win immediately
+  - [ ] If not, it will check if it should block the player from winning
+  - [ ] Computer will place its piece randomly
+  - [ ] In subsequent turns, build off of it to achieve four in a row
+  - [ ] Computer can also use powers
+
+### Utility
+
+- [ ] Pieces will always fill the lowest empty cell in column
+- [ ] Will include animations for dropping tokens or power usage
+- [ ] Track wins/losses for each player throught the session

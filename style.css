@@ -1,18 +1,47 @@
 h1 {
   justify-self: center;
+  font-size: 36px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: rgba(0, 0, 139, 0.572);
 }
 
 .gameBoard {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  width: 120vh;
-  height: 85vh;
+  width: 45vw;
+  margin: 0;
+  padding: 0;
+  border: 0;
   justify-self: center;
+
+  background-color: rgba(0, 0, 255, 0.353);
+  gap: 7px;
+  box-shadow: 0 0 10px 5px rgb(222, 109, 10);
 }
 
 .slot {
-  /* display: flex; */
+  display: flex;
+  flex: 1;
+  border-radius: 50%;
 
-  border: 2px solid rgba(18, 29, 126, 0.308);
+  justify-content: center;
+  justify-self: center;
+  align-items: center;
+  aspect-ratio: 1/1;
+  background-color: whitesmoke;
+  border: 2px solid red;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.column:hover {
+  background-color: blueviolet;
 }

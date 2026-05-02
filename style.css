@@ -47,9 +47,15 @@ body {
 }
 
 .redToken {
-  background-color: red;
+  background: radial-gradient(circle at center, rgb(162, 0, 0), red);
 }
 
 .goldToken {
-  background-color: gold;
+  background: radial-gradient(gold, gold);
+}
+
+.redToken,
+.goldToken {
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.382);
+  border: 1.5px solid black;
 }

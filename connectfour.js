@@ -7,12 +7,13 @@ for (let x = 0; x <= 5; x++) {
   }
   gameBoard.push(row);
 }
+gameOver = false;
 
 const colTrigger = document.querySelectorAll(".column");
-
 let currentPlayer = "player1";
 colTrigger.forEach((column, index) =>
   column.addEventListener("click", function (e) {
+    if (gameOver) return;
     for (let row = 5; row >= 0; row--) {
       if (gameBoard[row][index] === null) {
         console.log(row, index);
@@ -48,8 +49,10 @@ colTrigger.forEach((column, index) =>
           horizfour++;
           leftChecker -= 1;
         }
+        //Sum of tokens in a row
         if (horizfour >= 4) {
           console.log(`${placingPlayer} wins!`);
+          gameOver = true;
         }
 
         //
@@ -147,3 +150,27 @@ colTrigger.forEach((column, index) =>
     }
   }),
 );
+
+const newGame = document.querySelector(".btnNewGame");
+const slotClear = document.querySelectorAll(".slot");
+
+newGame.addEventListener("click", function (e) {
+  //Reset gameBoard
+  gameBoard = [];
+  for (let x = 0; x <= 5; x++) {
+    row = [];
+    for (let j = 0; j <= 6; j++) {
+      row.push(null);
+    }
+    gameBoard.push(row);
+  }
+  //Reset gameBoard visually
+  slotClear.forEach((slot) => {
+    slot.classList.remove("redToken");
+    slot.classList.remove("goldToken");
+  });
+  //Reset current player to player1
+  currentPlayer = "player1";
+  //Reset gamestate to false
+  gameOver = false;
+});

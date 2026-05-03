@@ -7,7 +7,15 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Connect Four!</h1>
+    <div class="mainNav">
+      <h1>Connect Four!</h1>
+      <button class="btnNewGame">New Game</button>
+    </div>
+
+    <div class="mainBoard">
+      <div class="scoreBoard">Scoreboard</div>
+    </div>
+
     <div class="gameBoard">
       <div class="column">
         <div class="slot" data-row="0" data-column="0">0</div>
@@ -64,6 +72,11 @@
         <div class="slot" data-row="3" data-column="6">0</div>
         <div class="slot" data-row="4" data-column="6">0</div>
         <div class="slot" data-row="5" data-column="6">0</div>
+      </div>
+    </div>
+    <div class="winOverlay">
+      <div class="winCard">
+        <h1 class="winText">`${currentPlayer} is the winner!`</h1>
       </div>
     </div>
     <script src="connectfour.js"></script>

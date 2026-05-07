@@ -73,7 +73,7 @@ body {
 .btnNewGameOverlay {
   display: flex;
   width: fit-content;
-  font-size: 0.5rem;
+  font-size: 1rem;
   background-color: transparent;
   border: 0;
   font-family: "Press Start 2P", system-ui;
@@ -133,9 +133,9 @@ body {
   font-family: "Bitcount Grid Single", system-ui;
   font-optical-sizing: auto;
   font-weight: 400;
-  font-size: 3rem;
+  font-size: 6rem;
   font-style: normal;
-
+  margin-left: 100px;
   font-variation-settings:
     "slnt" 0,
     "CRSV" 0.5,
@@ -156,5 +156,5 @@ body {
 
 .scoreBoard {
   font-family: "Press Start 2P", system-ui;
-  font-size: 0.7rem;
+  font-size: 2rem;
 }

@@ -7,41 +7,41 @@ Two players take turns placing pieces in a 6-row, 7-column grid. Pieces fall to 
 ## HTML
 
 - [x] Board container (basic grid 6x7)
-- [ x] Each cell is represented (<div> with column/row)
-- [ ] New game button
-- [ ] Scoreboard that shows wins/losses for the players
-- [ ] Win/draw overlay
+- [x] Each cell is represented (<div> with column/row)
+- [x] New game button
+- [x] Scoreboard that shows wins/losses for the players
+- [x] Win/draw overlay
 - [ ] Piece selection screen shows flickering pieces to choose starting player
 - [ ] (Furthest) Buttons to activate powers for each player (flip, freeze)
 
 ## SCSS
 
-- [ ] Board layout using Grid with gaps
-- [ ] Circular piece styling using border-radius:50%
-- [ ] Two distinct colours for the pieces
+- [x] Board layout using Grid with gaps
+- [x] Circular piece styling using border-radius:50%
+- [x] Two distinct colours for the pieces
 - [ ] Responsive design - the board should fill screen on mobile
-- [ ] Flicker animation for selection screen
+- [x] Flicker animation for selection screen
 - [ ] Piece-drop animation for gravity effect
-- [ ] Win/Draw screen styled as a centered overlay
-- [ ] Hover effect on columns to indicate click target
+- [x] Win/Draw screen styled as a centered overlay
+- [x] Hover effect on columns to indicate click target
 
 ## JavaScript
 
 ### Core mechanics
 
-- [ ] Board represented as 2D array- 6 rows by 7 columns
-- [ ] Render the board from the array on every move
-- [ ] Column click listener to determine which column was clicked
-- [ ] Place piece in the lowest empty cell of that column
-- [ ] Update board array and re-render it
-- [ ] After each piece is placed:
-  - [ ] Check for win in every direction
-  - [ ] If a player has won, show win screen, update scoreboard and lock board til new game button is pressed
+- [x] Board represented as 2D array- 6 rows by 7 columns
+- [x] Render the board from the array on every move
+- [x] Column click listener to determine which column was clicked
+- [x] Place piece in the lowest empty cell of that column
+- [x] Update board array and re-render it
+- [x] After each piece is placed:
+  - [x] Check for win in every direction
+  - [x] If a player has won, show win screen, update scoreboard and lock board til new game button is pressed
   - [ ] If board is full and no player has won, show draw screen
-- [ ] Switch turns between players
-- [ ] New game button should:
-  - [ ] Reset board array
-  - [ ] Hide win/draw screens
+- [x] Switch turns between players
+- [x] New game button should:
+  - [x] Reset board array
+  - [x] Hide win/draw screens
   - [ ] Re-trigger the start-selection screen
 
 ### Game-start piece selection
@@ -91,6 +91,6 @@ Two players take turns placing pieces in a 6-row, 7-column grid. Pieces fall to 
 
 ### Utility
 
-- [ ] Pieces will always fill the lowest empty cell in column
+- [x] Pieces will always fill the lowest empty cell in column
 - [ ] Will include animations for dropping tokens or power usage
-- [ ] Track wins/losses for each player through the session
+- [x] Track wins/losses for each player through the session

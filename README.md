@@ -7,7 +7,7 @@ Two players take turns placing pieces in a 6-row, 7-column grid. Pieces fall to 
 ## HTML
 
 - [x] Board container (basic grid 6x7)
-- [ ] Each cell is represented (<div> with column/row)
+- [ x] Each cell is represented (<div> with column/row)
 - [ ] New game button
 - [ ] Scoreboard that shows wins/losses for the players
 - [ ] Win/draw overlay

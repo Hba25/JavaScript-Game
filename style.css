@@ -1,10 +1,6 @@
 h1 {
-  justify-self: center;
-  font-size: 36px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
 }
-
 body {
   margin: 0;
   background-color: rgba(0, 0, 139, 0.572);
@@ -36,7 +32,10 @@ body {
   background-color: whitesmoke;
   border: 2px solid red;
 }
-
+.btnText {
+  display: flex;
+  margin-bottom: 50px;
+}
 .column {
   display: flex;
   flex-direction: column;
@@ -65,8 +64,9 @@ body {
 .btnNewGameOverlay {
   display: flex;
   width: fit-content;
-  justify-content: flex-start;
-  align-self: flex-start;
+  font-size: 0.5rem;
+  background-color: transparent;
+  border: 0;
 }
 
 .mainBoard {
@@ -79,6 +79,8 @@ body {
 .mainNav {
   display: flex;
   justify-content: center;
+  align-items: center;
+  margin-left: 100px;
 }
 
 .winOverlay {
@@ -107,5 +109,33 @@ body {
 }
 
 .winText {
+  color: gold;
+}
+
+.material-symbols-outlined {
+  color: purple;
+  background-color: transparent;
+  display: inline;
+}
+/*title*/
+.bitcount-grid-single {
+  font-family: "Bitcount Grid Single", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 3rem;
+  font-style: normal;
+
+  font-variation-settings:
+    "slnt" 0,
+    "CRSV" 0.5,
+    "ELSH" 0,
+    "ELXP" 0;
+}
+
+.odd {
+  color: red;
+}
+
+.even {
   color: gold;
 }

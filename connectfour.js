@@ -8,6 +8,7 @@ for (let x = 0; x <= 5; x++) {
   gameBoard.push(row);
 }
 gameOver = false;
+
 const winScreen = document.querySelector(".winOverlay");
 const colTrigger = document.querySelectorAll(".column");
 const p1WinCount = document.querySelector(".p1Score");
@@ -193,7 +194,7 @@ function resetGame() {
   });
   //Reset current player to player1
   currentPlayer = "player1";
-  //Reset gamestate to false
+  //Reset game-state to false
   gameOver = false;
   // Win screen reset
   winScreen.style.display = "none";
@@ -215,4 +216,19 @@ function pointTally(placingPlayer) {
     scoreCounter.p2 += 1;
     p2WinCount.innerText = scoreCounter.p2;
   }
+}
+const title = document.querySelector(".bitcount-grid-single");
+const text = title.innerText;
+
+title.innerHTML = "";
+for (let i = 0; i < text.length; i++) {
+  const span = document.createElement("span");
+  span.textContent = text[i];
+
+  if (i % 2 === 0) {
+    span.classList.add("even");
+  } else {
+    span.classList.add("odd");
+  }
+  title.appendChild(span);
 }

@@ -93,4 +93,4 @@ Two players take turns placing pieces in a 6-row, 7-column grid. Pieces fall to 
 
 - [ ] Pieces will always fill the lowest empty cell in column
 - [ ] Will include animations for dropping tokens or power usage
-- [ ] Track wins/losses for each player throught the session
+- [ ] Track wins/losses for each player through the session

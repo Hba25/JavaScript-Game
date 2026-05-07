@@ -13,7 +13,12 @@
     </div>
 
     <div class="mainBoard">
-      <div class="scoreBoard">Scoreboard</div>
+      <div class="scoreBoard">
+        Scoreboard
+        <div class="scoreCounter">
+          Red: <span class="p1Score"></span> Gold: <span class="p2Score"></span>
+        </div>
+      </div>
     </div>
 
     <div class="gameBoard">
@@ -77,6 +82,7 @@
     <div class="winOverlay">
       <div class="winCard">
         <h1 class="winText">`${currentPlayer} is the winner!`</h1>
+        <button class="btnNewGameOverlay">New Game</button>
       </div>
     </div>
     <script src="connectfour.js"></script>

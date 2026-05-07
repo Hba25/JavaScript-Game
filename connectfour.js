@@ -1,5 +1,5 @@
 gameBoard = [];
-
+scoreCounter = { p1: 0, p2: 0 };
 for (let x = 0; x <= 5; x++) {
   row = [];
   for (let j = 0; j <= 6; j++) {
@@ -8,17 +8,18 @@ for (let x = 0; x <= 5; x++) {
   gameBoard.push(row);
 }
 gameOver = false;
-
+const winScreen = document.querySelector(".winOverlay");
 const colTrigger = document.querySelectorAll(".column");
+const p1WinCount = document.querySelector(".p1Score");
+const p2WinCount = document.querySelector(".p2Score");
 let currentPlayer = "player1";
 colTrigger.forEach((column, index) =>
   column.addEventListener("click", function (e) {
     if (gameOver) return;
     for (let row = 5; row >= 0; row--) {
       if (gameBoard[row][index] === null) {
-        console.log(row, index);
         gameBoard[row][index] = currentPlayer;
-        console.log(gameBoard);
+
         const colourObj = document.querySelector(
           `.slot[data-row= "${row}"][data-column= "${index}"]`,
         );
@@ -41,7 +42,7 @@ colTrigger.forEach((column, index) =>
         }
 
         //Check horizontal left
-        let leftChecker = index + -1;
+        let leftChecker = index - 1;
         while (
           leftChecker >= 0 &&
           gameBoard[row][leftChecker] === placingPlayer
@@ -51,8 +52,9 @@ colTrigger.forEach((column, index) =>
         }
         //Sum of tokens in a row
         if (horizfour >= 4) {
-          console.log(`${placingPlayer} wins!`);
           gameOver = true;
+          winnerScreen(placingPlayer);
+          pointTally(placingPlayer);
         }
 
         //
@@ -86,6 +88,9 @@ colTrigger.forEach((column, index) =>
         }
         if (diagfour >= 4) {
           console.log(`${placingPlayer} wins!`);
+          gameOver = true;
+          winnerScreen(placingPlayer);
+          pointTally(placingPlayer);
         }
         //
         // Check down‑left
@@ -117,6 +122,9 @@ colTrigger.forEach((column, index) =>
         }
         if (diagfour2 >= 4) {
           console.log(`${placingPlayer} wins!`);
+          gameOver = true;
+          winnerScreen(placingPlayer);
+          pointTally(placingPlayer);
         }
 
         //Vertical check
@@ -137,9 +145,12 @@ colTrigger.forEach((column, index) =>
           vertCheck++;
         }
         if (vertCheck >= 4) {
-          console.log(`${placingPlayer} wins!`);
+          console.log(`${currentPlayer} wins!`);
+          gameOver = true;
+          winnerScreen(placingPlayer);
+          pointTally(placingPlayer);
         }
-
+        //Switch turns
         if (currentPlayer === "player1") {
           currentPlayer = "player2";
         } else {
@@ -152,9 +163,20 @@ colTrigger.forEach((column, index) =>
 );
 
 const newGame = document.querySelector(".btnNewGame");
+const newGameOverlay = document.querySelector(".btnNewGameOverlay");
 const slotClear = document.querySelectorAll(".slot");
 
-newGame.addEventListener("click", function (e) {
+function winnerScreen(placingPlayer) {
+  winScreen.style.display = "flex";
+  const winMessage = document.querySelector(".winText");
+  if (placingPlayer === "player1") {
+    winMessage.innerText = "Red Wins!";
+  } else {
+    winMessage.innerText = "Gold wins!";
+  }
+}
+
+function resetGame() {
   //Reset gameBoard
   gameBoard = [];
   for (let x = 0; x <= 5; x++) {
@@ -173,4 +195,24 @@ newGame.addEventListener("click", function (e) {
   currentPlayer = "player1";
   //Reset gamestate to false
   gameOver = false;
+  // Win screen reset
+  winScreen.style.display = "none";
+}
+
+newGame.addEventListener("click", function (e) {
+  resetGame();
 });
+
+newGameOverlay.addEventListener("click", function (e) {
+  resetGame();
+});
+const scoreText = document.querySelector(".scoreCounter");
+function pointTally(placingPlayer) {
+  if (placingPlayer === "player1") {
+    scoreCounter.p1 += 1;
+    p1WinCount.innerText = scoreCounter.p1;
+  } else {
+    scoreCounter.p2 += 1;
+    p2WinCount.innerText = scoreCounter.p2;
+  }
+}

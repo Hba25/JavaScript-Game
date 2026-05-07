@@ -61,7 +61,8 @@ body {
   border: 1.5px solid black;
 }
 
-.btnNewGame {
+.btnNewGame,
+.btnNewGameOverlay {
   display: flex;
   width: fit-content;
   justify-content: flex-start;
@@ -81,7 +82,6 @@ body {
 }
 
 .winOverlay {
-  display: flex;
   display: none;
   backdrop-filter: blur(5px);
   background-color: rgba(0, 0, 0, 0.7);

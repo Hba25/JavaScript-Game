@@ -133,7 +133,7 @@ body {
   font-family: "Bitcount Grid Single", system-ui;
   font-optical-sizing: auto;
   font-weight: 400;
-  font-size: 6rem;
+  font-size: 5rem;
   font-style: normal;
   margin-left: 100px;
   font-variation-settings:
@@ -156,5 +156,33 @@ body {
 
 .scoreBoard {
   font-family: "Press Start 2P", system-ui;
-  font-size: 2rem;
+  font-size: 1.5rem;
+}
+@media screen and (max-width: 600px) {
+  .gameBoard {
+    width: 100%;
+  }
+  .mainBoard {
+    width: 100%;
+  }
+  .mainNav {
+    margin-left: 0;
+  }
+  .scoreBoard {
+    font-size: 1rem;
+  }
+  .bitcount-grid-single {
+    font-size: 3rem;
+  }
+  .btnNewGame,
+  .btnNewGameOverlay {
+    font-size: 1rem;
+  }
+  .material-symbols-outlined {
+    margin-right: 60px;
+    color: rgb(7, 247, 7);
+  }
+  .btnText {
+    margin-top: 30px;
+  }
 }

@@ -1,5 +1,5 @@
 ## Connect Four Game
-Live Link [here](https://hba25.github.io/JavaScript-Game/).
+Link [Open in Chrome for the best experience](https://hba25.github.io/JavaScript-Game/).
 
 ## Objective
 
